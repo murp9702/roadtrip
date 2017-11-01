@@ -2,12 +2,24 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/breckenridge.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-  <h1>Welcome to Breckenridge. Home to the snow-bums</h1>
-
-  <img src="/img/breck.jpg" />
-
-  <a href="/glenwood">Up to Glenwood Springs</a>
+  <div class="container-fluid">
+    <div class="col-md-8">
+      <h1>Welcome to Breckenridge. Home to the snow-bums</h1>
+      <a href="/glenwood">Head to Glenwood Springs</a>
+      <img src="/img/breck.jpg" />
+      <iframe src="https://www.google.com/maps/embed/v1/place?q=breckenridge, co&zoom=7&key=AIzaSyDUwoTSQo-PFFTZ2nmrhF_3jlwgQWacAzc">
+        </iframe>
+    </div>
+    <div class="col-md-4">
+      <div class="weather">
+        <h3>Current Weather</h3>
+      </div>
+    </div>
+  </div>
   <script src="/js/breckenridge.js"></script>
 </body>
 </head>

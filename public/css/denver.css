@@ -1,3 +1,20 @@
 body {
   background-color: orange;
 }
+
+iframe {
+  height: 400px;
+  width: 800px;
+}
+
+img {
+  height: 400px;
+  width: 800px;
+}
+
+a {
+  top: 0;
+  display: block;
+  position: relative;
+  font-size: 24px;
+}
