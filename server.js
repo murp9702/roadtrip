@@ -39,6 +39,12 @@ app.get('/glenwood', function(request, response){
     console.log("sent glenwood");
 });
 
+app.get('/cargo', function(req, res){
+    res.sendFile('./public/html/cargo.html', {root: './'});
+    console.log('redirect to cargo page');
+});
+
+
 app.listen(8080, function(){
   console.log('running on port 8080')
 })

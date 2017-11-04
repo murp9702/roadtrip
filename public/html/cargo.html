@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="/css/cargo.css"
+</head>
+<body>
+
+  <div id="app">
+
+  <span>Current cash: ${{cash}}</span><span>Current weight: {{weight}}lbs/200lbs</span><br/>
+
+  <button onclick="increaseCargo('beer', 30, 25)" id="beerIncrease">-$20 and -20#</button>
+  <!-- beer -->
+  <img src="https://www.drinkpreneur.com/wp-content/uploads/2017/04/drinkpreneur_2016-01-26-1453821995-8643361-beermain.jpg" />
+  <button onclick="decreaseCargo('beer', 30, 25)" id="beerDecrease">+$20 and +20#</button>
+  <!-- beefjerky -->
+  <img src="https://images.vat19.com/ghost-pepper-beef-jerky/spontaneous-combustion-ghost-pepper-jerky.jpg" />
+  <!-- gas -->
+  <img src="https://images-na.ssl-images-amazon.com/images/I/81QrMbEbZxL._SY450_.jpg" />
+  <!-- mix tape -->
+  <img src="http://mixtapedc.com/images/mixtape_main.jpg" />
+
+
+
+  </div>
+
+
+  <script src="./js/cargo.js"></script>
+</body>
+
+</html>
