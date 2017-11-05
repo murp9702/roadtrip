@@ -8,14 +8,16 @@
   <script src="https://unpkg.com/vue"></script>
   <link rel="stylesheet" href="/css/cargo.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="/css/odometer-theme-car.css" />
 </head>
 <body>
 
   <div id="app">
 
     <div class="container-fluid">
-        <div class="row">
-          <span>Current cash: ${{cash}}</span><span>Remaining weight: {{weight}}lbs/200lbs</span><br/>
+        <div >
+          <div>Current cash: ${{cash}}</div><br/>
+          <div>Remaining weight: {{weight}}lbs/200lbs</div><br/>
         </div>
       <div class="row">
         <!-- beer -->
@@ -62,7 +64,7 @@
       </div>
     </div>
   </div>
-
+  <script src="./js/odometer.min.js"></script>
   <script src="./js/cargo.js"></script>
 </body>
 

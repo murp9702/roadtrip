@@ -1,10 +1,14 @@
 var express = require('express');
-
+var bodyParser = require('body-parser');
 var app = express();
 
 
 
 app.use(express.static("./public"));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
 
 app.get('/', function(request, response){
   response.sendFile('./index.html', {root: './'});
@@ -43,6 +47,26 @@ app.get('/cargo', function(req, res){
     res.sendFile('./public/html/cargo.html', {root: './'});
     console.log('redirect to cargo page');
 });
+
+app.post('/validate', function(req, res){
+    var data = req.body;
+    var remainingCash = 200 - ((data.beer.inventory * data.beer.cash) + (data.jerky.inventory * data.jerky.cash) + (data.gas.inventory * data.gas.cash) + (data.tapes.inventory * data.tapes.cash));
+
+    var remainingWeight = 200 - ((data.beer.inventory * data.beer.weight) + (data.jerky.inventory * data.jerky.weight) + (data.gas.inventory * data.gas.weight));
+
+    console.log("remainingCash " + remainingCash)
+    console.log("remainingWeight: " + remainingWeight)
+    console.log("data.cash:" + data.cash)
+    console.log("data.weight: " + data.weight)
+
+    if (remainingCash != data.cash || remainingWeight != data.weight) {
+      res.send('nope');
+    }
+    else {
+      res.send('all good');
+    }
+});
+
 
 
 app.listen(8080, function(){
