@@ -6,3 +6,7 @@ img {
 .disableButton {
   background-color: red;
 }
+
+#app {
+  display: inline-block;
+}
