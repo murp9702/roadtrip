@@ -14,50 +14,56 @@
   <div id="app">
 
     <div class="container-fluid">
-      <div class="row">
-        <span>Current cash: ${{cash}}</span><span>Remaining weight: {{weight}}lbs/200lbs</span><br/>
+        <div class="row">
+          <span>Current cash: ${{cash}}</span><span>Remaining weight: {{weight}}lbs/200lbs</span><br/>
+        </div>
+      <div class="container">
+        <!-- beer -->
+        <div class="col-sm-3">
+          <img src="https://www.drinkpreneur.com/wp-content/uploads/2017/04/drinkpreneur_2016-01-26-1453821995-8643361-beermain.jpg" />
+          <button @click="increaseCargo('beer', 30, 25)"
+            v-bind:disabled="checkWeightAndCash(30, 25)"
+                  :class="checkWeightAndCash(30, 25)">Buy Beer
+          </button>
+          <button @click="decreaseCargo('beer', 30, 25)"
+            v-bind:disabled="checkQuantity('beer')"
+                  :class="checkQuantity('beer')">Sell Beer
+          </button>
+          <div>$25 and 30#</div>
+          <div>{{beer}}</div>
+        </div>
+
+        <!-- beefjerky -->
+        <div class="col-sm-3">
+          <img src="https://images.vat19.com/ghost-pepper-beef-jerky/spontaneous-combustion-ghost-pepper-jerky.jpg" />
+          <button @click="increaseCargo('jerky',10, 80)" v-bind:class="checkWeightAndCash(10,80)">Buy Beef Jerky</button>
+          <button @click="decreaseCargo('jerky',10, 80)" v-bind:class="checkQuantity('jerky')">Sell Beef Jerky</button>
+          <div>$80 and 30#</div>
+          <div>{{jerky}}</div>
+        </div>
+
+
+
+        <!-- gas -->
+        <div class="col-sm-3">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/81QrMbEbZxL._SY450_.jpg" />
+          <button @click="increaseCargo('gas',40, 120)" v-bind:class="checkWeightAndCash(40, 120)">Buy Gas</button>
+          <button @click="decreaseCargo('gas',40, 120)" v-bind:class="checkQuantity('gas')">Sell Gas</button>
+          <div>$120 and 30#</div>
+          <div>{{gas}}</div>
+        </div>
+
+
+
+        <!-- mix tape -->
+        <div class="col-sm-3">
+          <img src="http://mixtapedc.com/images/mixtape_main.jpg" />
+          <button @click="increaseCargo('tapes',0, 10)" v-bind:class="checkWeightAndCash(0, 10)">Buy Tapes</button>
+          <button @click="decreaseCargo('tapes',0, 10)" v-bind:class="checkQuantity('tapes')">Sell Tapes</button>
+          <div>$10 and Weightless</div>
+          <div>{{tapes}}</div>
+        </div>
       </div>
-
-    <!-- beer -->
-    <div class="row">
-      <img src="https://www.drinkpreneur.com/wp-content/uploads/2017/04/drinkpreneur_2016-01-26-1453821995-8643361-beermain.jpg" />
-      <button @click="increaseCargo('beer', 30, 25)" v-bind:class="checkClass(30, 25)">Buy Beer</button>
-      <button @click="decreaseCargo('beer', 30, 25)">Sell Beer</button>
-      <div>$25 and 30#</div>
-      <div>{{beer}}</div>
-    </div>
-
-    <!-- beefjerky -->
-    <div class="row">
-      <img src="https://images.vat19.com/ghost-pepper-beef-jerky/spontaneous-combustion-ghost-pepper-jerky.jpg" />
-      <button @click="increaseCargo('jerky',10, 80)">Buy Beef Jerky</button>
-      <button @click="decreaseCargo('jerky',10, 80)">Sell Beef Jerky</button>
-      <div>$80 and 30#</div>
-      <div>{{jerky}}</div>
-    </div>
-
-
-
-    <!-- gas -->
-    <div class="row">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/81QrMbEbZxL._SY450_.jpg" />
-      <button @click="increaseCargo('gas',40, 120)">Buy Gas</button>
-      <button @lick="decreaseCargo('gas',40, 120)">Sell Gas</button>
-      <div>$120 and 30#</div>
-      <div>{{gas}}</div>
-    </div>
-
-
-
-    <!-- mix tape -->
-    <div class="row">
-      <img src="http://mixtapedc.com/images/mixtape_main.jpg" />
-      <button @click="increaseCargo('tapes',0, 10)">Buy Tapes</button>
-      <button @click="decreaseCargo('tapes',0, 10)">Sell Tapes</button>
-      <div>$10 and Weightless</div>
-      <div>{{tapes}}</div>
-    </div>
-
     </div>
   </div>
 

@@ -8,6 +8,7 @@ var newVM = new Vue ({
     jerky: 0,
     weight: 200,
     cash: 200,
+    disableButton: true,
   },
   methods: {
     increaseCargo: function(item, weight, cash) {
@@ -43,12 +44,21 @@ var newVM = new Vue ({
 
       }
     },
-    checkClass: function(weight, cash) {
-      console.log(cash)
-      console.log(newVM.cash)
+    checkWeightAndCash: function(weight, cash) {
+      if ((this.cash - cash) < 0 || (this.weight - cash) < 0){
+        disableButton = false;
       }
-
-
+      else {
+        disableButton = true;
+      }
+    },
+    checkQuantity: function(item) {
+      if(this[item] === 0) {
+        disableButton = false
+      }
+      else {
+        disableButton = true;
+      }
+    }
   }
-
 });
