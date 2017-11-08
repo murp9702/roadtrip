@@ -41,7 +41,7 @@ var newVM = new Vue ({
             gas: {
               inventory: newVM.gas,
               cash: 120,
-              weight: 30,
+              weight: 40,
             },
             tapes: {
               inventory: newVM.tapes,
@@ -58,9 +58,9 @@ var newVM = new Vue ({
           };
         $.post('/validate', dataToSend, function(returnData){
           if (returnData === "nope") {
+            newVM.decreaseCargo(item, dataToSend[item].weight, dataToSend[item].cash);
             alert("Cant do that");
           }
-          console.log(returnData);
         });
       }
 
@@ -86,7 +86,7 @@ var newVM = new Vue ({
     },
     checkQuantity: function(item) {
       if(this[item] === 0) {
-        disableButton = true
+        disableButton = true;
       }
       else {
         disableButton = false;

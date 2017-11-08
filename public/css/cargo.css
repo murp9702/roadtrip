@@ -10,3 +10,7 @@ img {
 #app {
   display: inline-block;
 }
+
+.numbers {
+  font-family: 'Graduate', cursive;
+}

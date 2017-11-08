@@ -48,17 +48,15 @@ app.get('/cargo', function(req, res){
     console.log('redirect to cargo page');
 });
 
+// check if client side score count is correct
 app.post('/validate', function(req, res){
+    // data from post request
     var data = req.body;
+    // check remaining cash based off of current inventory
     var remainingCash = 200 - ((data.beer.inventory * data.beer.cash) + (data.jerky.inventory * data.jerky.cash) + (data.gas.inventory * data.gas.cash) + (data.tapes.inventory * data.tapes.cash));
-
+    // check remaining weight based off of current inventory
     var remainingWeight = 200 - ((data.beer.inventory * data.beer.weight) + (data.jerky.inventory * data.jerky.weight) + (data.gas.inventory * data.gas.weight));
-
-    console.log("remainingCash " + remainingCash)
-    console.log("remainingWeight: " + remainingWeight)
-    console.log("data.cash:" + data.cash)
-    console.log("data.weight: " + data.weight)
-
+    // check to see if data is different than on client side
     if (remainingCash != data.cash || remainingWeight != data.weight) {
       res.send('nope');
     }
